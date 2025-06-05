@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-system-deployment
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: feedback-system-deployment
+  template:
+    metadata:
+      labels:
+        app: feedback-system-deployment
+    spec:
+      containers:
+      - name: feedback-system-container
+        image: arpitsrivastava529/feedback-system-frontend:latest
+        ports:
+          - containerPort: 3001
