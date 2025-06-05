@@ -16,4 +16,4 @@ spec:
       - name: feedback-system-container
         image: arpitsrivastava529/feedback-system-frontend:latest
         ports:
-          - containerPort: 3001
+          - containerPort: 3000
