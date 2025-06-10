@@ -1,8 +1,16 @@
 provider "aws" {
-  region = "us-east-1"
+    region = "us-east-1"
 }
-
-resource "aws_instance" "web" {
-  ami           = "ami-0c55b159cbfafe1f0"
-  instance_type = "t2.micro"
+resource "aws_s3_bucket" "arpit529srivastava_s3_bucket" {
+    bucket = "arpit529srivastava"
+    tags = {
+     Name = "arpit529srivastava"
+     Environment = "Dev"
+    }
+}
+resource "aws_s3_bucket_versioning" "versioning" {
+  bucket = aws_s3_bucket.arpit529srivastava_s3_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
